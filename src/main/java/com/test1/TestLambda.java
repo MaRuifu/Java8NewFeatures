@@ -11,8 +11,10 @@ public class TestLambda {
     @Test
     public void test1(){
         Comparator<Integer> com = new Comparator<Integer>() {
+            @Override
             public int compare(Integer o1, Integer o2) {
-                return - Integer.compare(o1,o2);
+
+                return  Integer.compare(o1,o2);
             }
         };
 
@@ -107,6 +109,7 @@ public class TestLambda {
 
             @Override
             public boolean test(Employee employee) {
+
                 return employee.getAge() > 35;
             }
         });
@@ -130,7 +133,7 @@ public class TestLambda {
     }
 
 
-    //优化方式四  lambda 表达式
+    //优化方式四  Stream API
 
     @Test
     public void test7(){

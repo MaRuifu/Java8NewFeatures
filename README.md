@@ -36,14 +36,21 @@
 
 ### 四大函数式接口 ###
 
-| 函数式接口                   | 参数类型 | 返回类型   |  用户  
-| -------- :                  | :-----: | :-----:    | :----
-| Consumer<T><br>消费型接口    |   T     | void   |对类型为T的对象应用操作,包含方法: void accept(T t)
-| Supplier<T><br>供给型接口    |    无   |    T    |返回类型为T的对象,包含方法: T get() 
+| 函数式接口                  | 参数类型 | 返回类型   |  用户  
+| :----: | :---: | :---: | :---:
+| Consumer<T><br>消费型接口  |   T     | void   |对类型为T的对象应用操作,包含方法: void accept(T t)
+| Supplier<T><br>供给型接口   |    无   |    T    |返回类型为T的对象,包含方法: T get() 
 | Consumer<T,R><br>函数型接口  |    T    |   R    | 对类型为T的对象应用操作,并返回结果.结果的类型为R类型的对象,包含方法: R apply(T t) 
 | Consumer<T><br>断言型接口    |    T   |boolean |  确定类型为T的对象是否满足某个约束,并对返回boolean 值.包含方法 boolean test(T t)  
 
 
+
+| 名称   | 类型 | 是否必须| 参数描述
+| :----: | :---: | :---: | :---:
+| out_trade_no  |String|  必须  |   交易流水号（不可重复，重复就会显示二维码失效）
+| total_amount  |String|  必须  |   订单金额
+| subject  |String|  必须  |   订单标题(支付宝官网支付测试)
+| body  |String|  必须  |   订单描述
 
 
 

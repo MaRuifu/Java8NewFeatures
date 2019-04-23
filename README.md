@@ -44,16 +44,6 @@
 | Consumer<T><br>断言型接口    |    T   |boolean |  确定类型为T的对象是否满足某个约束,并对返回boolean 值.包含方法 boolean test(T t)  
 
 
-
-| 名称   | 类型 | 是否必须| 参数描述
-| :----: | :---: | :---: | :---:
-| out_trade_no  |String|  必须  |   交易流水号（不可重复，重复就会显示二维码失效）
-| total_amount  |String|  必须  |   订单金额
-| subject  |String|  必须  |   订单标题(支付宝官网支付测试)
-| body  |String|  必须  |   订单描述
-
-
-
 ### 所有函数式接口 ###
 | 序号   | 接口 | 描述
 | :----: | :---: | :---: 

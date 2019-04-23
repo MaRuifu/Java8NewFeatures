@@ -1,4 +1,4 @@
-package com.test2;
+package com.testLambda;
 
 import org.junit.Test;
 

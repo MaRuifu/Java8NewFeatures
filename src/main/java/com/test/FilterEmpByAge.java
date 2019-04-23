@@ -1,6 +1,6 @@
-package com.test1;
+package com.test;
 
-public class FilterEmpByAge implements MyPredicate <Employee> {
+public class FilterEmpByAge implements MyPredicate<Employee> {
 
 
     @Override

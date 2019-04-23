@@ -1,6 +1,5 @@
-package com.test2;
+package com.testLambda;
 
-import com.test1.Employee;
 import org.junit.Test;
 
 import java.util.*;

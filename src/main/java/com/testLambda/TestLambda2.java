@@ -69,6 +69,7 @@ public class TestLambda2 {
 
 
     public String  strHandler(String str, Function<String , String > fun){
+
         return  fun.apply(str);
     }
 

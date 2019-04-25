@@ -5,9 +5,17 @@ public class Employee {
     //姓名
     private String name;
     //年龄
-    private int age;
+    private Integer age;
     //薪水
     private double salary;
+
+    private String statusCode;
+
+    private  enum  Status{
+        FREE,
+        BUSY,
+        VOCATION;
+    }
 
 
     @Override
@@ -22,19 +30,37 @@ public class Employee {
     public Employee() {
     }
 
+    public Employee(String name, Integer age, double salary, String statusCode) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+        this.statusCode = statusCode;
+    }
+
+    public String getStatusCode() {
+        return statusCode;
+    }
+
+    public void setStatusCode(String statusCode) {
+        this.statusCode = statusCode;
+    }
+
+    public Employee(String name, Integer age, double salary) {
+
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+    }
+
     public Employee(String name, int age, double salary) {
         this.name = name;
         this.age = age;
         this.salary = salary;
     }
 
-    public int getAge() {
-        return age;
-    }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
+
+
 
     public String getName() {
         return name;
@@ -42,6 +68,14 @@ public class Employee {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public double getSalary() {

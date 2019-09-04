@@ -127,20 +127,6 @@
 |  37	| ToDoubleBiFunction<T,U|          接受两个输入参数，返回一个double类型结果
 |  || 
 |  38	| ToDoubleFunction<T>   |      接受一个输入参数，返回一个double类型结果
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 |  || 
 |  39	| ToIntBiFunction<T,U>  |        接受两个输入参数，返回一个int类型结果。
 |  || 
@@ -192,34 +178,40 @@ Stream 是 Java8 中处理集合的关键抽象概念，它可以指定你希望
 
 方法 返回类型 作用
 joining String 连接流中每个字符串
+
 String str= list.stream().map(Employee::getName).collect(Collectors.joining());
+
 maxBy Optional<T> 根据比较器选择最大值
+    
 Optional<Emp>max= list.stream().collect(Collectors.maxBy(comparingInt(Employee::getSalary)));
+    
 minBy Optional<T> 根据比较器选择最小值
+    
 Optional<Emp> min = list.stream().collect(Collectors.minBy(comparingInt(Employee::getSalary)));
+    
 reducing 归约产生的类型 从一个作为累加器的初始值
-开始，利用BinaryOperator与
-流中元素逐个结合，从而归
-约成单个值
+
+开始，利用BinaryOperator与流中元素逐个结合，从而归约成单个值
+
 inttotal=list.stream().collect(Collectors.reducing(0, Employee::getSalar, Integer::sum));
-collectingAndThen 转换函数返回的类型 包裹另一个收集器，对其结
-果转换函数
+
+collectingAndThen 转换函数返回的类型 包裹另一个收集器，对其结果转换函数
+
 inthow= list.stream().collect(Collectors.collectingAndThen(Collectors.toList(), List::size));
-groupingBy Map<K, List<T>> 根据某属性值对流分组，属
-性为K，结果为V
-Map<Emp.Status, List<Emp>> map= list.stream()
-.collect(Collectors.groupingBy(Employee::getStatus));
+
+groupingBy Map<K, List<T>> 根据某属性值对流分组，属性为K，结果为V
+    
+Map<Emp.Status, List<Emp>> map= list.stream().collect(Collectors.groupingBy(Employee::getStatus));
+    
 partitioningBy Map<Boolean, List<T>> 根据true或false进行分区
+    
 Map<Boolean,List<Emp>>vd= list.stream().collect(Collectors.partitioningBy(Employee::getManage));
 
 
 ## 并行流与串行流 ##
-并行流就是把一个内容分成多个数据块，并用不同的线程分
-别处理每个数据块的流。
+并行流就是把一个内容分成多个数据块，并用不同的线程分别处理每个数据块的流。
 
-Java 8 中将并行进行了优化，我们可以很容易的对数据进行并
-行操作。Stream API 可以声明性地通过 parallel() 与
-sequential() 在并行流与顺序流之间进行切换。
+Java 8 中将并行进行了优化，我们可以很容易的对数据进行并行操作。Stream API 可以声明性地通过 parallel() 与sequential() 在并行流与顺序流之间进行切换。
 
 
 ## 了解 Fork/Join 框架 ## 
@@ -229,15 +221,12 @@ Fork/Join 框架：就是在必要的情况下，将一个大任务，进行拆�
 
 
 Fork/Join 框架与传统线程池的区别
+
 采用 “工作窃取”模式（work-stealing）：
-当执行新的任务时它可以将其拆分分成更小的任务执行，并将小任务加到线
-程队列中，然后再从一个随机线程的队列中偷一个并把它放在自己的队列中。
-相对于一般的线程池实现,fork/join框架的优势体现在对其中包含的任务的
-处理方式上.在一般的线程池中,如果一个线程正在执行的任务由于某些原因
-无法继续运行,那么该线程会处于等待状态.而在fork/join框架实现中,如果
-某个子问题由于等待另外一个子问题的完成而无法继续运行.那么处理该子
-问题的线程会主动寻找其他尚未运行的子问题来执行.这种方式减少了线程
-的等待时间,提高了性能.
+
+当执行新的任务时它可以将其拆分分成更小的任务执行，并将小任务加到线程队列中，然后再从一个随机线程的队列中偷一个并把它放在自己的队列中。
+
+相对于一般的线程池实现,fork/join框架的优势体现在对其中包含的任务的处理方式上.在一般的线程池中,如果一个线程正在执行的任务由于某些原因无法继续运行,那么该线程会处于等待状态.而在fork/join框架实现中,如果某个子问题由于等待另外一个子问题的完成而无法继续运行.那么处理该子问题的线程会主动寻找其他尚未运行的子问题来执行.这种方式减少了线程的等待时间,提高了性能.
 
 
 ##  新时间日期 API ## 

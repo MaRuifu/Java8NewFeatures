@@ -47,7 +47,7 @@ public class ForkJoinCalculate extends RecursiveTask<Long> {
         }else{
             long middle=(start+end)/2;
             ForkJoinCalculate left=new ForkJoinCalculate(start, middle);
-            left.fork();
+            left.fork(); //拆分子任务 ，同时压入线程队列
 
             ForkJoinCalculate right=new ForkJoinCalculate(middle+1, end);
             right.fork();

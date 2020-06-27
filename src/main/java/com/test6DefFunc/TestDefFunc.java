@@ -1,4 +1,4 @@
-package com.test6defFunc;
+package com.test6DefFunc;
 
 
 /**

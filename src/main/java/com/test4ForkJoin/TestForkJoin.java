@@ -1,4 +1,4 @@
-package com.test4forkJoin;
+package com.test4ForkJoin;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.testMethodRef;
+package com.test2MethodRef;
 
 import com.test.Employee;
 import org.junit.Test;

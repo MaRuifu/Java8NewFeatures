@@ -1,4 +1,4 @@
-package com.testLambda;
+package com.test1Lambda;
 
 @FunctionalInterface
 public interface MyFun {

@@ -1,4 +1,4 @@
-package com.testStreamApi;
+package com.test3StreamApi;
 
 
 import com.test.Employee;
@@ -43,17 +43,18 @@ public class TestStreamApi1 {
         //1.可以通过Collection 系列集合提供的stream()或parallelStream()
         List<String> list = new ArrayList<>();
         Stream<String> stream1 = list.stream();
+        Stream<String> stream2 = list.parallelStream();
 
         //2.通过 Arrays 中的静态方法stream()获取数组流
         Employee[] emps=new Employee[10];
-        Stream<Employee> stream2= Arrays.stream(emps);
+        Stream<Employee> stream3= Arrays.stream(emps);
 
         //3.通过Stream 类中的静态方法of()
-        Stream<String> stream3=Stream.of("aa","bb","cc");
+        Stream<String> stream4=Stream.of("aa","bb","cc");
 
         //4.创建无限流
         //迭代
-        Stream<Integer> stream4=Stream.iterate(0, (x) -> x+2);
+        Stream<Integer> stream5=Stream.iterate(0, (x) -> x+2);
         stream4.limit(10).forEach(System.out::println);
 
         //生成

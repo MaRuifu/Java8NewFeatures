@@ -1,4 +1,4 @@
-package com.testLambda;
+package com.test1Lambda;
 
 import org.junit.Test;
 
@@ -75,6 +75,7 @@ public class TestLambda2 {
 
 
 
+
     @Test
     public void test4(){
 
@@ -84,7 +85,10 @@ public class TestLambda2 {
     }
 
 
+
+
     public boolean  getPredicate(Integer moner, Predicate<Integer > predicate){
+
         return  predicate.test(moner);
     }
 

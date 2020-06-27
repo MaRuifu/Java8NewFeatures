@@ -11,11 +11,12 @@ public class Employee {
 
     private String statusCode;
 
-    private  enum  Status{
-        FREE,
-        BUSY,
-        VOCATION;
-    }
+
+    public static final String FREE = "FREE";
+    public static final String BUSY = "BUSY";
+    public static final String VOCATION = "VOCATION";
+
+
 
 
     @Override
@@ -26,6 +27,8 @@ public class Employee {
                 ", salary=" + salary +
                 '}';
     }
+
+
 
     public Employee() {
     }

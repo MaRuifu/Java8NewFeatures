@@ -1,4 +1,4 @@
-package com.testStreamApi;
+package com.test3StreamApi;
 
 import com.test.Employee;
 import org.junit.Test;

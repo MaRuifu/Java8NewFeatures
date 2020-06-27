@@ -20,6 +20,7 @@ public class TestLambda {
 
         TreeSet<Integer> ts = new TreeSet<>(com);
 
+
     }
 
     @Test
@@ -27,8 +28,6 @@ public class TestLambda {
         Comparator<Integer> com = (x,y)->Integer.compare(x,y);
 
     }
-
-
     List<Employee>  empList = Arrays.asList(
             new Employee("张三",28,5555.55),
             new Employee("李四",38,5888.55),

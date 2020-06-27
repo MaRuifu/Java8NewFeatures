@@ -1,4 +1,4 @@
-package com.testLambda;
+package com.test1Lambda;
 
 import org.junit.Test;
 
@@ -10,7 +10,7 @@ import java.util.function.Consumer;
  *                            箭头操作符将 Lambda表达式拆分成两部分
  *
  * 左侧:Lambda表达式的参数列表
- * 右侧:Lambda表达式中所需要执行的功能.即 Lamebda 体
+ * 右侧:Lambda表达式中所需要执行的功能.即 Lambda 体
  *
  * 语法格式一 :无参数,无返回值
  *       ( ) -> System.out.println("我是一个无参数无返回值的方法  Lambda");

@@ -22,15 +22,24 @@ public interface TestDefFunc {
         }
     }
 
-    interface Named{
-        default String getName(){
-            return "hehehe";
-        }
-    }
+//    interface Named{
+//        default String getName(){
+//            return "hehehe";
+//        }
+//    }
 
-    class MyClass implements MyFunc,Named{
+//    class MyClass implements MyFunc,Named{
+//        public String getName(){
+//            return MyFunc.super.getName();
+//        }
+//    }
+
+    class MyClass implements MyFunc {
         public String getName(){
-            return Named.super.getName();
+            return getName();
         }
+
+
+
     }
 }

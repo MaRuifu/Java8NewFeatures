@@ -10,26 +10,14 @@ import java.util.stream.LongStream;
 
 public class TestForkJoin {
 
-    @Test
-    public void test1(){
-        Instant start=Instant.now();
-
-        ForkJoinPool pool=new ForkJoinPool();
-        ForkJoinTask<Long> task=new ForkJoinCalculate(0L, 1000000000L);
-        long sum=pool.invoke(task);
-        System.out.println(sum);
-
-        Instant end=Instant.now();
-        System.out.println("消耗时间"+ Duration.between(start, end).toMillis()+"ms");//消耗时间3409ms
-    }
 
 
     @Test//普通for
-    public void test2(){
+    public void test1(){
         Instant start=Instant.now();
 
         long sum=  0L;
-        for (long i = 0; i <= 1000000000L; i++) {
+        for (long i = 0; i <= 100000000000L; i++) {
             sum += i ;
         }
 
@@ -42,11 +30,29 @@ public class TestForkJoin {
 
 
 
+
+    @Test
+    public void test2(){
+        Instant start=Instant.now();
+
+        ForkJoinPool pool=new ForkJoinPool();
+        ForkJoinTask<Long> task=new ForkJoinCalculate(0L, 100000000000L);
+        long sum=pool.invoke(task);
+        System.out.println(sum);
+
+        Instant end=Instant.now();
+        System.out.println("消耗时间"+ Duration.between(start, end).toMillis()+"ms");//消耗时间3409ms
+    }
+
+
+
+
+
     @Test//直接使用java8的并行流
     public void test3(){
         Instant start=Instant.now();
 
-        Long sum= LongStream.rangeClosed(0L, 1000000000L)
+        Long sum= LongStream.rangeClosed(0L, 100000000000L)
                 .parallel()
                 .reduce(0,Long::sum);
         System.out.println(sum);

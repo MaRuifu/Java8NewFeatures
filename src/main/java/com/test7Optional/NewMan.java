@@ -1,30 +1,30 @@
-package com.test5Optional;
+package com.test7Optional;
 
 import java.util.Optional;
 
 //注意：Optional 不能被序列化
 public class NewMan {
 
-    private Optional<Godness> godness = Optional.empty();
+    private Optional<Goddness> godness = Optional.empty();
 
-    private Godness god;
+    private Goddness god;
 
-    public Optional<Godness> getGod(){
+    public Optional<Goddness> getGod(){
         return Optional.of(god);
     }
 
     public NewMan() {
     }
 
-    public NewMan(Optional<Godness> godness) {
+    public NewMan(Optional<Goddness> godness) {
         this.godness = godness;
     }
 
-    public Optional<Godness> getGodness() {
+    public Optional<Goddness> getGodness() {
         return godness;
     }
 
-    public void setGodness(Optional<Godness> godness) {
+    public void setGodness(Optional<Goddness> godness) {
         this.godness = godness;
     }
 

@@ -32,7 +32,8 @@ public class FuncInterfaces {
     }
 
     public void accept(Integer i,Consumer<Integer> con){
-       con.accept(i);
+
+        con.accept(i);
     }
 
 

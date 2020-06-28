@@ -48,7 +48,7 @@ public class TestStreamApi3 {
      *
      */
 
-    //    @Test
+    @Test
     public void test1() {
 
 

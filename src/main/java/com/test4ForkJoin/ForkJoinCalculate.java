@@ -29,7 +29,7 @@ public class ForkJoinCalculate extends RecursiveTask<Long> {
 
     private long start;
     private long end;
-    private static final long THRESHOLD=10000L;//临界值
+    private static final long THRESHOLD=100000L;//临界值
 
     public ForkJoinCalculate(long start,long end) {
         this.start=start;

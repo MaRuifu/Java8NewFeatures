@@ -1,4 +1,4 @@
-package com.test1Lambda;
+package com.test1FuncInterfaces;
 
 import org.junit.Test;
 
@@ -23,7 +23,7 @@ import java.util.function.Supplier;
  */
 
 
-public class TestLambda2 {
+public class FuncInterfaces {
 
     @Test
     public void test1(){

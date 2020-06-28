@@ -59,7 +59,7 @@ public class TestStreamApi3 {
          *
          */
 
-        boolean b1 = employees.stream()//allMatch-检查是否匹配所有元素
+        boolean b1 = employees.parallelStream()//allMatch-检查是否匹配所有元素
                 .allMatch((e) -> e.getStatusCode().equals(Employee.BUSY));
         System.out.println(b1);//false
 

@@ -27,33 +27,39 @@ public class ForkJoinCalculate extends RecursiveTask<Long> {
 
     private static final long serialVersionUID = 1234567890L;//序列号
 
+
     private long start;
     private long end;
-    private static final long THRESHOLD=100000L;//临界值
 
-    public ForkJoinCalculate(long start,long end) {
-        this.start=start;
-        this.end=end;
+    //临界点
+    private static final long THRESHOLD = 1_0000L;
+
+    public ForkJoinCalculate(long start, long end) {
+        this.start = start;
+        this.end = end;
     }
+
     @Override
     protected Long compute() {
-        long length=end-start;
-        if(length<=THRESHOLD){
-            long sum=0;
-            for(long i=start;i<=end;i++){
-                sum+=i;
+        long len = end - start;
+        //不大于临界值直接计算结果
+        if(len < THRESHOLD){
+            long sum = 0L;
+            for (long i = start; i <= end; i++) {
+                sum  +=  i;
             }
             return sum;
         }else{
-            long middle=(start+end)/2;
-            ForkJoinCalculate left=new ForkJoinCalculate(start, middle);
-            left.fork(); //拆分子任务 ，同时压入线程队列
-
-            ForkJoinCalculate right=new ForkJoinCalculate(middle+1, end);
-            right.fork();
-
-            return left.join()+right.join();
+            //大于临界值时,拆分为两个子任务
+            Long mid = (start+end)/2;
+            ForkJoinCalculate task1 = new ForkJoinCalculate(start,mid);
+            ForkJoinCalculate task2 = new ForkJoinCalculate(mid + 1,end);
+            task1.fork();
+            task2.fork();
+            //合并计算
+            return task1.join()+task2.join();
         }
+
     }
 
 }

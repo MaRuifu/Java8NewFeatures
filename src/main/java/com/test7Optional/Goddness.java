@@ -1,11 +1,11 @@
-package com.test5Optional;
+package com.test7Optional;
 
-public class Godness {
+public class Goddness {
 
     private String name;
 
 
-    public Godness(String name) {
+    public Goddness(String name) {
         this.name = name;
     }
 
@@ -17,12 +17,12 @@ public class Godness {
         this.name = name;
     }
 
-    public Godness() {
+    public Goddness() {
     }
 
     @Override
     public String toString() {
-        return "Godness{" +
+        return "Goddness{" +
                 "name='" + name + '\'' +
                 '}';
     }

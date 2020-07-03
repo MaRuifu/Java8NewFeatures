@@ -1,4 +1,4 @@
-package com.test5Optional;
+package com.test7Optional;
 
 import org.junit.Test;
 
@@ -22,33 +22,33 @@ public class TestOptional {
     @Test
     public void test5(){
         Man man=new Man();
-        String name=getGodnessName(man);
+        String name=getGoddessName(man);
         System.out.println(name);
     }
-    //需求：获取一个男人心中女神的名字
-    public String getGodnessName(Man man){
+
+    public String getGoddessName(Man man){
         if(man!=null){
-            Godness g=man.getGodness();
+            Goddness g=man.getGoddness();
             if(g!=null){
                 return g.getName();
             }
         }
-        return "苍老师";
+        return "A女神";
     }
 
     //运用Optional的实体类
     @Test
     public void test6(){
-        Optional<Godness> godness=Optional.ofNullable(new Godness("林志玲"));
-        Optional<NewMan> op=Optional.ofNullable(new NewMan(godness));
-        String name=getGodnessName2(op);
+        Optional<Goddness> goddness=Optional.ofNullable(new Goddness("A女神"));
+        Optional<NewMan> op=Optional.ofNullable(new NewMan(goddness));
+        String name=getGoddnessName2(op);
         System.out.println(name);
     }
 
-    public String getGodnessName2(Optional<NewMan> man){
+    public String getGoddnessName2(Optional<NewMan> man){
         return man.orElse(new NewMan())
                 .getGodness()
-                .orElse(new Godness("苍老师"))
+                .orElse(new Goddness("A女神"))
                 .getName();
     }
 }

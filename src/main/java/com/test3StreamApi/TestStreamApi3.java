@@ -37,7 +37,7 @@ public class TestStreamApi3 {
 
 
     List<Employee> employees = Arrays.asList(
-            new Employee("张三", 18, 9999.99, "FREE"),
+            new Employee("张三", 18, 7999.99, "FREE"),
             new Employee("李四", 58, 5555.55, "BUSY"),
             new Employee("王五", 26, 3333.33, "VOCATION"),
             new Employee("赵六", 36, 6666.66, "FREE"),
@@ -48,6 +48,14 @@ public class TestStreamApi3 {
      *
      */
 
+    @Test
+    public void test12() {
+
+
+        Optional<Employee> max=employees.stream()
+                .collect(Collectors.maxBy((e1,e2)->Double.compare(e2.getSalary(), e1.getSalary())));
+        System.out.println(max.get());
+    }
     @Test
     public void test1() {
 
@@ -116,6 +124,13 @@ public class TestStreamApi3 {
     }
 
 
+    @Test
+    public  void test123(){
+        //总和
+        Long count=employees.stream()
+                .collect(Collectors.counting());
+        System.out.println(count);
+    }
 
     /*
      * 收集
@@ -208,5 +223,22 @@ public class TestStreamApi3 {
                 .map(Employee::getName)
                 .collect(Collectors.joining(","));
         System.out.println(strr);//张三李四王五赵六田七
+
+
+
+
+        //取最后一条
+
+        List<String> list1 = Arrays.asList("node", "java", "c++", "react", "javascript");
+
+        String result = list1.stream().reduce((first, second) -> second).orElse("no last element");
+        String result2 = list1.stream().skip(list1.size() - 1).findFirst().orElse("no last element");
+
+        System.out.println(result);
     }
+
+
+
+
+
 }

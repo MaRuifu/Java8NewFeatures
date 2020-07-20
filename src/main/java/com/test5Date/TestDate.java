@@ -165,15 +165,20 @@ public class TestDate {
     public void test62(){
 //        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
 
-        String  staTime = "13:00";
-        String  endTime = "13:01";
 
-        LocalDateTime staLocalDateTime=LocalDateTime.of(0,0,0,String.join(staTime,":").,22,0);//指定一个日期时间
-        LocalDateTime endLocalDateTime=LocalDateTime.of(0,0,0,13,22,0);//指定一个日期时间
-//
+        //计算 指定格式的  时间差
+        String  staTime = "13:00";
+        String  endTime = "14:01";
+
+        String[]  staTimelist = staTime.split(":");
+        String[]  endTimelist = endTime.split(":");
+
+        LocalDateTime staLocalDateTime=LocalDateTime.of(2020,1,1,Integer.valueOf(staTimelist[0]),Integer.valueOf(staTimelist[1]),0);//指定一个日期时间
+        LocalDateTime endLocalDateTime=LocalDateTime.of(2020,1,1,Integer.valueOf(endTimelist[0]),Integer.valueOf(endTimelist[1]),0);//指定一个日期时间
+////
 //        LocalDateTime staLocalDateTime = LocalDateTime.parse("13:00", dtf);
 //        LocalDateTime endLocalDateTime = LocalDateTime.parse("13:01", dtf);
-        System.out.println(Math.abs(ChronoUnit.SECONDS.between(staLocalDateTime, endLocalDateTime)));
+        System.out.println(Math.abs(ChronoUnit.MINUTES.between(staLocalDateTime, endLocalDateTime)));
 
     }
 

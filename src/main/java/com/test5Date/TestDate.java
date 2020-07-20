@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Set;
 
@@ -134,6 +135,7 @@ public class TestDate {
     @Test
     public void test6(){
         DateTimeFormatter dtf=DateTimeFormatter.ISO_DATE;
+        DateTimeFormatter dtf1=DateTimeFormatter.ISO_DATE_TIME;
         LocalDateTime ldt=LocalDateTime.now();
 
         String strDate=ldt.format(dtf);
@@ -148,6 +150,35 @@ public class TestDate {
         LocalDateTime newDate=ldt.parse(strDate2,dtf2);//以指定格式解析字符串，重新获得LocalDateTime类型
         System.out.println(newDate);//2017-07-20T19:49:53
     }
+ @Test
+    public void test61(){
+
+        String strDate=LocalDateTime.ofInstant(Instant.ofEpochMilli(8000), ZoneId.of("UCT")).format(DateTimeFormatter.ISO_TIME);
+        System.out.println(strDate);
+        System.out.println(ZoneId.systemDefault());
+
+    }
+
+
+
+    @Test
+    public void test62(){
+//        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
+
+        String  staTime = "13:00";
+        String  endTime = "13:01";
+
+        LocalDateTime staLocalDateTime=LocalDateTime.of(0,0,0,String.join(staTime,":").,22,0);//指定一个日期时间
+        LocalDateTime endLocalDateTime=LocalDateTime.of(0,0,0,13,22,0);//指定一个日期时间
+//
+//        LocalDateTime staLocalDateTime = LocalDateTime.parse("13:00", dtf);
+//        LocalDateTime endLocalDateTime = LocalDateTime.parse("13:01", dtf);
+        System.out.println(Math.abs(ChronoUnit.SECONDS.between(staLocalDateTime, endLocalDateTime)));
+
+    }
+
+
+
 
     //ZonedDate、ZonedTime、ZonedDateTime
     @Test

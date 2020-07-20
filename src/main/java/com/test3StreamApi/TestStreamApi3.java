@@ -40,7 +40,7 @@ public class TestStreamApi3 {
             new Employee("张三", 18, 7999.99, "FREE"),
             new Employee("李四", 58, 5555.55, "BUSY"),
             new Employee("王五", 26, 3333.33, "VOCATION"),
-            new Employee("赵六", 36, 6666.66, "FREE"),
+            new Employee("赵六", 26, 3333.33, "FREE"),
             new Employee("田七", 12, 8888.88, "BUSY")
     );
     /*
@@ -235,9 +235,19 @@ public class TestStreamApi3 {
         String result2 = list1.stream().skip(list1.size() - 1).findFirst().orElse("no last element");
 
         System.out.println(result);
+
+
     }
 
 
+    @Test
+    public void test5(){
+
+        //排序后集合去重
+        employees = employees.stream().collect(Collectors.collectingAndThen(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(Employee::getAge))), ArrayList::new));
+
+        employees.forEach(System.out::println);
+    }
 
 
 

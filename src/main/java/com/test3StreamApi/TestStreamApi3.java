@@ -40,7 +40,7 @@ public class TestStreamApi3 {
             new Employee("张三", 18, 7999.99, "FREE"),
             new Employee("李四", 58, 5555.55, "BUSY"),
             new Employee("王五", 26, 3333.33, "VOCATION"),
-            new Employee("赵六", 26, 3333.33, "FREE"),
+            new Employee("赵六", null, 3333.33, "FREE"),
             new Employee("田七", 12, 8888.88, "BUSY")
     );
     /*
@@ -117,17 +117,23 @@ public class TestStreamApi3 {
 
         System.out.println("--------------------------");
 
-        Optional<Double> op=employees.stream()//reduce(BinaryOperator b)//没有起始值，map返回可能为空，所以返回Optional类型
-                .map(Employee::getSalary)
-                .reduce(Double::sum);
-        System.out.println(op.get());
+//        Optional<Integer> op=employees.stream()//reduce(BinaryOperator b)//没有起始值，map返回可能为空，所以返回Optional类型
+//                .map(Employee::getAge)
+//                .reduce(Integer::sum);
+//        System.out.println(op.get());
+
+        Integer op=employees.stream()//reduce(BinaryOperator b)//没有起始值，map返回可能为空，所以返回Optional类型
+                .filter(employee -> null != employee.getAge())
+                .map(Employee::getAge)
+                .reduce(Integer::sum).get();
+        System.out.println(op);
     }
 
 
     @Test
     public  void test123(){
         //总和
-        Long count=employees.stream()
+        Long count=employees.stream().filter(obj -> "张三".equals(obj.getName()))
                 .collect(Collectors.counting());
         System.out.println(count);
     }
